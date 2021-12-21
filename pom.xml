@@ -4,15 +4,15 @@
 	<parent>
 		<groupId>com.northdata</groupId>
 		<artifactId>superpom</artifactId>
-		<version>1.0.0</version>
+		<version>1.2.0</version>
 	</parent>
 
 	<groupId>com.northdata.schema</groupId>
 	<artifactId>lei</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
-	
+	<version>2.0.0-SNAPSHOT</version>
+
 	<name>JAXB Bindings for LEI schemas</name>
-	
+
 	<description>JAXB Bindings for LEI schemas</description>
 
 	<properties>
@@ -25,10 +25,18 @@
 		<connection>scm:git:git@github.com:northdata/schema-lei.git</connection>
 		<developerConnection>scm:git:git@github.com:northdata/schema-lei.git</developerConnection>
 		<url>http://github.com/northdata/schema-lei/tree/master</url>
-	  <tag>HEAD</tag>
-  </scm>
-	
+		<tag>HEAD</tag>
+	</scm>
+
 	<url>http://github.com/northdata/schema-lei</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -52,33 +60,34 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
+				<groupId>com.evolvedbinary.maven.mojohaus</groupId>
+				<artifactId>jaxb-maven-plugin</artifactId>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<id>generate-lei</id>
 						<goals>
-							<goal>generate</goal>
+							<goal>xjc</goal>
 						</goals>
 						<configuration>
-							<generateDirectory>${project.build.directory}/generated-sources/lei</generateDirectory>
-							<generatePackage>com.northdata.schema.lei.gen</generatePackage>
-							<schemaIncludes>
-								<include>xsd/lei-cdf-v2-1.xsd</include>
-							</schemaIncludes>
+							<sources>
+								<source>src/main/resources/xsd/lei-cdf-v2-1.xsd</source>
+							</sources>
+							<packageName>com.northdata.schema.lei.gen</packageName>
+							<outputDirectory>${project.build.directory}/generated-sources/lei</outputDirectory>
 						</configuration>
 					</execution>
 					<execution>
 						<id>generate-rr</id>
 						<goals>
-							<goal>generate</goal>
+							<goal>xjc</goal>
 						</goals>
 						<configuration>
-							<generateDirectory>${project.build.directory}/generated-sources/rr</generateDirectory>
-							<generatePackage>com.northdata.schema.rr.gen</generatePackage>
-							<schemaIncludes>
-								<include>xsd/rr-cdf-v1-1.xsd</include>
-							</schemaIncludes>
+							<sources>
+								<source>src/main/resources/xsd/rr-cdf-v1-1.xsd</source>
+							</sources>
+							<packageName>com.northdata.schema.rr.gen</packageName>
+							<outputDirectory>${project.build.directory}/generated-sources/rr</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
