@@ -9,7 +9,7 @@
 
 	<groupId>com.northdata.schema</groupId>
 	<artifactId>lei</artifactId>
-	<version>2.0.1-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 
 	<name>JAXB Bindings for LEI schemas</name>
 
@@ -71,7 +71,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>src/main/resources/xsd/lei-cdf-v2-1.xsd</source>
+								<source>src/main/resources/xsd/2021-03-04_lei-cdf-v3-1.xsd</source>
 							</sources>
 							<packageName>com.northdata.schema.lei.gen</packageName>
 							<outputDirectory>${project.build.directory}/generated-sources/lei</outputDirectory>
@@ -84,7 +84,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>src/main/resources/xsd/rr-cdf-v1-1.xsd</source>
+								<source>src/main/resources/xsd/2021-03-04_rr-cdf-v2-1.xsd</source>
 							</sources>
 							<packageName>com.northdata.schema.rr.gen</packageName>
 							<outputDirectory>${project.build.directory}/generated-sources/rr</outputDirectory>
