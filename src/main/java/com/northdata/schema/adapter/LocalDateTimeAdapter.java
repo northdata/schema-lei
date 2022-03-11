@@ -1,21 +1,21 @@
 package com.northdata.schema.adapter;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
-public class LocalDateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
+public class LocalDateTimeAdapter extends XmlAdapter<String, OffsetDateTime> {
 
     @Override
-    public LocalDateTime unmarshal(String v) throws Exception {
-        return LocalDateTime.parse(v.trim(), DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+    public OffsetDateTime unmarshal(String v) throws Exception {
+        return OffsetDateTime.parse(v.trim(), DateTimeFormatter.ISO_OFFSET_DATE_TIME);
     }
 
     @Override
-    public String marshal(LocalDateTime v) throws Exception {
+    public String marshal(OffsetDateTime v) throws Exception {
         if (v != null) {
-            return v.toString();
+            return v.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
         } else {
             return null;
         }

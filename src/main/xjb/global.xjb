@@ -6,9 +6,9 @@
 	<!-- Raise theEnumMemberSizeCap limit -->
 	<jxb:bindings>
 		<jxb:globalBindings typesafeEnumMaxMembers="2000">
-			<xjc:javaType
-				adapter="com.northdata.schema.adapter.LocalDateTimeAdapter"
-				name="java.time.LocalDateTime" xmlType="xs:dateTime" />
+<!-- 			<xjc:javaType -->
+<!-- 				adapter="com.northdata.schema.adapter.LocalDateTimeAdapter" -->
+<!-- 				name="java.time.OffsetDateTime" xmlType="xs:dateTime" /> -->
 		</jxb:globalBindings>
 	</jxb:bindings>
 
