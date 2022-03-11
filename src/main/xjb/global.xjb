@@ -1,0 +1,15 @@
+<jxb:bindings xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:jxb="https://jakarta.ee/xml/ns/jaxb" version="3.0">
+
+	<!-- Raise theEnumMemberSizeCap limit -->
+	<jxb:bindings>
+		<jxb:globalBindings typesafeEnumMaxMembers="2000">
+			<xjc:javaType
+				adapter="com.northdata.schema.adapter.LocalDateTimeAdapter"
+				name="java.time.LocalDateTime" xmlType="xs:dateTime" />
+		</jxb:globalBindings>
+	</jxb:bindings>
+
+</jxb:bindings>
