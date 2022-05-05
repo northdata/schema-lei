@@ -9,7 +9,7 @@
 
 	<groupId>com.northdata.schema</groupId>
 	<artifactId>lei</artifactId>
-	<version>3.0.0</version>
+	<version>3.0.1-SNAPSHOT</version>
 
 	<name>JAXB Bindings for LEI schemas</name>
 
